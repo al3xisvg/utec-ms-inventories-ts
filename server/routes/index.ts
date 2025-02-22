@@ -35,4 +35,19 @@ router.post(
   }
 )
 
+router.get(
+  '/inventories/list',
+  async (req: Request, res: Response): Promise<void> => {
+    try {
+      const inventories = await Inventories.find({})
+        .sort({ createdAt: -1 })
+        .lean()
+
+      res.status(201).json({ inventories })
+    } catch (error) {
+      res.status(500).json({ message: 'Error al listar inventarios', error })
+    }
+  }
+)
+
 export default router
