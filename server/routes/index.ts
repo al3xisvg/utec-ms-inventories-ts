@@ -1,6 +1,6 @@
 import { Request, Response, Router } from 'express'
 
-import Inventories from '@/models/inventories'
+import Inventories from '../models/inventories'
 
 const router = Router()
 
